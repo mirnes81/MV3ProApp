@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MV-3 PRO</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self';" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><h1>MV-3 PRO – Outil chantier (MVP hors-ligne)</h1></header>
+  <nav class="tabs">
+    <button class="tab-btn" data-tab="tab-dashboard">Tableau de bord</button>
+    <button class="tab-btn" data-tab="tab-hours">Heures</button>
+    <button class="tab-btn" data-tab="tab-form">Formulaire pose</button>
+    <button class="tab-btn" data-tab="tab-vac">Vacances</button>
+    <button class="tab-btn" data-tab="tab-report">Rapport</button>
+  </nav>
+  <main>
+    <section id="tab-dashboard" class="tab active">
+      <h2>Bienvenue</h2>
+      <p>Cette application fonctionne <strong>hors-ligne</strong>. Les données sont <strong>chiffrées</strong> automatiquement.</p>
+      <div class="card">
+        <h3>Export / Import</h3>
+        <button id="btnExport">Exporter (JSON)</button>
+        <input type="file" id="fileImport" accept="application/json" />
+      </div>
+    </section>
+    <section id="tab-hours" class="tab">
+      <h2>Saisie des heures</h2>
+      <form id="hoursForm">
+        <div class="grid">
+          <label>Date<input type="date" id="hDate" required /></label>
+          <label>Début<input type="time" id="hStart" required /></label>
+          <label>Fin<input type="time" id="hEnd" required /></label>
+          <label>Pause (min)<input type="number" id="hBreak" min="0" step="5" value="0" /></label>
+          <label>Note<input type="text" id="hNote" placeholder="optionnel" /></label>
+        </div>
+        <button type="submit">Ajouter</button>
+      </form>
+      <div class="table-wrap">
+        <table id="hoursTable">
+          <thead><tr><th>Date</th><th>Début</th><th>Fin</th><th>Pause</th><th>Heures</th><th>Note</th><th></th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><td colspan="7" id="hoursTotal">Total: 0.00 h</td></tr></tfoot>
+        </table>
+      </div>
+    </section>
+    <section id="tab-form" class="tab">
+      <h2>Formulaire – Pose carrelage</h2>
+      <form id="poseForm">
+        <div class="grid">
+          <label>Pièce
+            <select id="room" required>
+              <option>Salon</option><option>Entrée</option><option>Cuisine</option>
+              <option>SDD</option><option>SDB</option><option>WC</option><option>Chambre</option>
+            </select>
+          </label>
+          <label>Type de pose
+            <select id="poseType" required>
+              <option>Droite</option><option>Diagonal</option><option>Calepinage</option><option>Chevrons</option><option>Opus</option><option>Libre 1</option><option>Libre 2</option><option>Libre 3</option>
+            </select>
+          </label>
+          <label>Joint ciment<input type="text" id="cement" placeholder="ex. 1500 – Almond"/></label>
+          <label>Joint silicone<input type="text" id="silicone" placeholder="ex. Latasil – Almond"/></label>
+          <label>Profil aluminium
+            <select id="aluProfile"><option>Sans</option><option>Angle carré</option><option>Jolly</option><option>Quarter Round</option></select>
+          </label>
+          <label>Plinthes<select id="plinthes"><option>Oui</option><option>Non</option></select></label>
+          <label>Mur jusqu’au plafond<select id="ceiling"><option>Non</option><option>Oui</option></select></label>
+          <label>Notes<input type="text" id="poseNote" placeholder="optionnel" /></label>
+        </div>
+        <button type="submit">Ajouter</button>
+      </form>
+      <div class="table-wrap">
+        <table id="poseTable">
+          <thead><tr><th>Pièce</th><th>Pose</th><th>Ciment</th><th>Silicone</th><th>Profil</th><th>Plinthes</th><th>Plafond</th><th>Notes</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="tab-vac" class="tab"><h2>Vacances (à venir)</h2><p>Module à compléter.</p></section>
+    <section id="tab-report" class="tab"><h2>Rapport journalier (à venir)</h2><p>Module à compléter.</p></section>
+  </main>
+  <footer><small>MV-3 PRO • MVP v0.2.0</small></footer>
+  <script src="app.js"></script>
+</body>
+</html>
