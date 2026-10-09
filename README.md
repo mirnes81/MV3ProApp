@@ -1,3 +1,17 @@
+# ⛔ DÉPÔT OBSOLÈTE — NE PLUS UTILISER
+
+Ce dépôt est une ancienne copie/test de **MV-3 PRO Tâches**.
+
+La version active et maintenue est désormais dans le dépôt GitHub :
+
+**`mirnes81/mv3-taches`**
+
+Aucun nouveau développement ni build automatique ne doit être réalisé ici.
+Ce dépôt est conservé uniquement comme historique jusqu'à archivage/suppression
+définitive dans GitHub.
+
+---
+
 # MV-3 PRO Tâches — v1.3
 
 Application Android de gestion de tâches, projets et chantiers.
